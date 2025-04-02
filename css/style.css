@@ -62,4 +62,7 @@
 a:hover {
     color: aqua;
 }
+.navbar-nav {
+    margin-right: 0;
+}
 
