@@ -65,4 +65,6 @@ a:hover {
 .navbar-nav {
     margin-right: 0;
 }
-
+.nav-link:hover {
+    color: black !important;
+}
