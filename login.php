@@ -1,70 +1,102 @@
 <?php
-$showAlert=false;
-if ($_SERVER['REQUEST_METHOD'] == 'POST'&& isset($_POST['submit'])) {
+$showAlert = false;
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
 
     include 'partials/database.php';
     $email = $_POST["email"];
     $password = $_POST["password"];
-     $sql="select * from users where email='$email' and password='$password'";
-     $result=mysqli_query($conn,$sql);
-     if(mysqli_num_rows($result)==1){
-        $showAlert=true;
+    $sql = "select * from users where email='$email' and password='$password'";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) == 1) {
+        $showAlert = true;
         $user = $result->fetch_assoc();
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
-
         $_SESSION['username'] = $user['username'];
         header('location:index.php?home=true');
-        exit();
-     }
+        exit;
     }
+}
 ?>
-<?php
- if (!$showAlert && isset($_POST['submit'])) {
-        echo '<div class="alert alert-danger alert-dismissible fade show m-0" role="alert">
-  <strong>Invalid crenttials!</strong> OR you are not registerd.
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>';}
-if ($showAlert && isset($_POST['submit'])) {
-    echo '<div class="alert alert-success alert-dismissible fade show m-0" role="alert">
-<strong>login sucessfull!</strong> OR you are logged in.
-<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>';}
-?>
-<div class="w-100 vh-100 d-flex justify-content-center align-items-center">
-        
-           
-            <form method="post" class="sign-main p-5">
 
-                <div class="text-center">
-                <i class="fa-solid fa-user fs-2"></i>
-                    <h2>Login</h2>
 
-                </div>
-                <div class="d-flex flex-column">
-                <label for="Email" class="ls-label"><i class="fa-solid fa-user"></i> Email:</label>
-                <input type="email" name="email" placeholder="Email" class="ls-input">
-               
-                <label for="password" class="ls-label"><i class="fa-solid fa-lock" class="ls-label"></i> Password:</label>
-                <input type="password" name="password" placeholder="Password" class="ls-input">
-                <div class="d-flex justify-content-center align-items-center mt-3">
-                <p>--------------------------------or-----------------------------------</p>
+
+<!-- Alerts -->
+<div class="flex items-center justify-center h-screen bg-gray-100">
+
+    <div class="w-full max-w-md bg-white p-6 rounded-lg shadow-md">
+
+        <!-- Alerts -->
+        <?php if (!$showAlert && isset($_POST['submit'])): ?>
+            <div id="alert-danger" class="bg-red-500 text-white text-sm p-3 rounded-lg mb-4 flex justify-between items-center">
+                <span><strong>Invalid credentials!</strong> OR you are not registered.</span>
+                <button onclick="closeAlert('alert-danger')" class="text-white text-lg">&times;</button>
             </div>
-            <div class="d-flex justify-content-center align-items-center gap-5">
-                <a href=""><i class="fa-brands fa-google fs-2"></i></a>
-                <a href=""><i class="fa-brands fa-facebook fs-2"></i></a>
-                <a href=""><i class="fa-solid fa-phone fs-2"></i></a>
+        <?php elseif ($showAlert && isset($_POST['submit'])): ?>
+            <div id="alert-success" class="bg-green-500 text-white text-sm p-3 rounded-lg mb-4 flex justify-between items-center">
+                <span><strong>Login successful!</strong> OR you are logged in.</span>
+                <button onclick="closeAlert('alert-success')" class="text-white text-lg">&times;</button>
             </div>
-                
-                <p class="mt-3">Not register? go to signup page <a href="?signup=true"><i class="fa-solid fa-user-plus"></i></a></p>
-                <div class="text-center">
-                    <button name="submit" class="ls-button">Login <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
-                </div>
-              </div>
-            </form>
+        <?php endif; ?>
+       
 
-    
+
+        <div class="text-center">
+            <i class="fa-solid fa-user text-4xl text-gray-700"></i>
+            <h2 class="text-2xl font-semibold mt-2">Login</h2>
+        </div>
+
+        <form method="post" class="mt-4">
+            <div class="flex flex-col">
+                <label for="email" class="text-gray-700 font-medium">
+                    <i class="fa-solid fa-user mr-2"></i> Email:
+                </label>
+                <input type="email" name="email" placeholder="Email"
+                    class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+
+                <label for="password" class="mt-3 text-gray-700 font-medium">
+                    <i class="fa-solid fa-lock mr-2"></i> Password:
+                </label>
+                <input type="password" name="password" placeholder="Password"
+                    class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+
+            <!-- OR Divider -->
+            <div class="flex items-center justify-center my-4">
+                <span class="w-full border-b border-gray-300"></span>
+                <span class="mx-3 text-gray-500">or</span>
+                <span class="w-full border-b border-gray-300"></span>
+            </div>
+
+            <!-- Social Login -->
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-red-500 text-3xl"><i class="fa-brands fa-google"></i></a>
+                <a href="#" class="text-blue-700 text-3xl"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="text-green-500 text-3xl"><i class="fa-solid fa-phone"></i></a>
+            </div>
+
+            <p class="text-sm text-gray-600 mt-4 text-center">
+                Not registered? <a href="?signup=true" class="text-blue-500 hover:underline">
+                    <i class="fa-solid fa-user-plus"></i> Sign up
+                </a>
+            </p>
+
+            <div class="text-center mt-4">
+                <button type="submit" name="submit"
+                    class="w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium">
+                    Login <i class="fa-solid fa-arrow-right-to-bracket ml-2"></i>
+                </button>
+            </div>
+        </form>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+    <!-- JavaScript to Close Alerts -->
+    <script>
+        function closeAlert(alertId) {
+            document.getElementById(alertId).style.display = 'none';
+        }
+    </script>
+
+    </div>
+

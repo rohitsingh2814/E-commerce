@@ -35,75 +35,109 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'&& isset($_POST['submit'])) {
 }
 ?>
 
-    <?php
-    if($userexist){
-        echo '<div class="alert alert-success alert-dismissible fade show m-0" role="alert">
-  <strong>you have already register!</strong> You can now login <a href="?login=true"><i class="fa-solid fa-right-to-bracket"></i></a>.
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>';
-    }
-    else{
+<?php
+if ($userexist) {
+    echo '<div class="alert bg-green-100 border-l-4 border-green-500 text-green-700 p-4 m-2 rounded-md relative" role="alert">
+        <strong>You have already registered!</strong> You can now login 
+        <a href="?login=true" class="text-blue-600 font-bold"><i class="fa-solid fa-right-to-bracket"></i></a>.
+        <button class="close-alert absolute top-2 right-3 text-green-700 hover:text-red-600">&times;</button>
+    </div>';
+} else {
     if ($showAlert) {
-        echo '<div class="alert alert-success alert-dismissible fade show m-0" role="alert">
-  <strong>Sucessfull!</strong> You can now login <a href="?login=true"><i class="fa-solid fa-right-to-bracket"></i></a>.
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>';
-    } 
- if (!$showAlert &&isset($_POST['submit'])) {
-        echo '<div class="alert alert-danger alert-dismissible fade show m-0" role="alert">
-  <strong>failed!</strong> please enter value carefully.
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>';
+        echo '<div class="alert bg-green-100 border-l-4 border-green-500 text-green-700 p-4 m-2 rounded-md relative" role="alert">
+        <strong>Successful!</strong> You can now login 
+        <a href="?login=true" class="text-blue-600 font-bold"><i class="fa-solid fa-right-to-bracket"></i></a>.
+        <button class="close-alert absolute top-2 right-3 text-green-700 hover:text-red-600">&times;</button>
+    </div>';
     }
-if (!$validusername) {
-        echo '<div class="alert alert-danger alert-dismissible fade show m-0" role="alert">
-  <strong>failed!</strong> Enter valid username must be the form of <strong>JohnDoe,user_123</strong>  .
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>';
+    if (!$showAlert && isset($_POST['submit'])) {
+        echo '<div class="alert bg-red-100 border-l-4 border-red-500 text-red-700 p-4 m-2 rounded-md relative" role="alert">
+        <strong>Failed!</strong> Please enter values carefully.
+        <button class="close-alert absolute top-2 right-3 text-red-700 hover:text-red-900">&times;</button>
+    </div>';
+    }
+    if (!$validusername) {
+        echo '<div class="alert bg-red-100 border-l-4 border-red-500 text-red-700 p-4 m-2 rounded-md relative" role="alert">
+        <strong>Failed!</strong> Enter a valid username like <strong>JohnDoe, user_123</strong>.
+        <button class="close-alert absolute top-2 right-3 text-red-700 hover:text-red-900">&times;</button>
+    </div>';
     }
     if (!$validemail) {
-        echo '<div class="alert alert-danger alert-dismissible fade show m-0" role="alert">
-  <strong>failed!</strong> Enter valid email like  <strong>user@gmail.com</strong>.
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>';}
-if (!$validpassword) {
-    echo '<div class="alert alert-danger alert-dismissible fade show m-0" role="alert">
-<strong>failed!</strong> Enter valid password must contain (A-Z)(a-z)(0-9)(special char).
-<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>';
-    }}
-    ?>
-    <div class="w-100 min-vh-100 d-flex justify-content-center align-items-center">
-        <form method="post" class="sign-main p-5">
+        echo '<div class="alert bg-red-100 border-l-4 border-red-500 text-red-700 p-4 m-2 rounded-md relative" role="alert">
+        <strong>Failed!</strong> Enter a valid email like <strong>user@gmail.com</strong>.
+        <button class="close-alert absolute top-2 right-3 text-red-700 hover:text-red-900">&times;</button>
+    </div>';
+    }
+    if (!$validpassword) {
+        echo '<div class="alert bg-red-100 border-l-4 border-red-500 text-red-700 p-4 m-2 rounded-md relative" role="alert">
+        <strong>Failed!</strong> Password must contain (A-Z), (a-z), (0-9), and a special character.
+        <button class="close-alert absolute top-2 right-3 text-red-700 hover:text-red-900">&times;</button>
+    </div>';
+    }
+}
+?>
 
-            <div class="text-center">
-                <i class="fa-solid fa-user-plus s-icon fs-2"></i>
-                <h2>SignUp</h2>
+<!-- Full Screen Centered Form -->
+<div class="flex items-center justify-center h-screen bg-gray-100">
+    <form method="post" class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <div class="text-center mb-6">
+            <i class="fa-solid fa-user-plus text-4xl text-blue-500"></i>
+            <h2 class="text-2xl font-bold text-gray-700 mt-2">Sign Up</h2>
+        </div>
+
+        <div class="space-y-4">
+            <!-- Username Field -->
+            <div>
+                <label for="username" class="block text-gray-700 font-semibold"><i class="fa-solid fa-user"></i> Username</label>
+                <input type="text" name="username" placeholder="Enter username" 
+                       class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
             </div>
-            <div class="d-flex flex-column">
-            <label for="username" class="ls-label"><i class="fa-solid fa-user"></i> Username:</label>
-            <input type="text" name="username"  placeholder="Enter username" class="ls-input">
 
-            <label for="email" class="ls-label"><i class="fa-solid fa-envelope"></i> Email:</label>
-            <input type="email" name="email"  placeholder="Enter email" class="ls-input">
+            <!-- Email Field -->
+            <div>
+                <label for="email" class="block text-gray-700 font-semibold"><i class="fa-solid fa-envelope"></i> Email</label>
+                <input type="email" name="email" placeholder="Enter email" 
+                       class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
 
-            <label for="password" class="ls-label"><i class="fa-solid fa-lock"></i> Password:</label>
-            <input type="password" name="password"  placeholder="Enter password" class="ls-input">
+            <!-- Password Field -->
+            <div>
+                <label for="password" class="block text-gray-700 font-semibold"><i class="fa-solid fa-lock"></i> Password</label>
+                <input type="password" name="password" placeholder="Enter password" 
+                       class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
 
-            <label for="confirmpassword" class="ls-label"><i class="fa-solid fa-lock"></i> Confirm Password:</label>
-            <input type="password" name="confirmpassword" placeholder="Confirm password" class="ls-input">
+            <!-- Confirm Password -->
+            <div>
+                <label for="confirmpassword" class="block text-gray-700 font-semibold"><i class="fa-solid fa-lock"></i> Confirm Password</label>
+                <input type="password" name="confirmpassword" placeholder="Confirm password" 
+                       class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
 
-            <p >Already registered? Go to Login Page <a href="?login=true"><i class="fa-solid fa-right-to-bracket"></i></a></p>
+            <!-- Already Registered? -->
+            <p class="text-gray-600 text-sm text-center">Already registered? 
+                <a href="?login=true" class="text-blue-600 font-bold"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+            </p>
 
+            <!-- Submit Button -->
             <div class="text-center">
-                <button type="submit" name="submit" class="ls-button">
-                    SignUp <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                <button type="submit" name="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+                    Sign Up <i class="fa-solid fa-arrow-right-to-bracket"></i>
                 </button>
             </div>
-        </form>
-
-   
+        </div>
+    </form>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+<!-- JavaScript for Alert Close Button -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".close-alert").forEach(button => {
+        button.addEventListener("click", function () {
+            let alertBox = this.parentElement;
+            alertBox.style.opacity = "0";  // Smooth fade out
+            setTimeout(() => alertBox.remove(), 300); // Remove after fade
+        });
+    });
+});
+</script>
