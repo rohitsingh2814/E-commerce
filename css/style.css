@@ -65,6 +65,60 @@ a:hover {
 .navbar-nav {
     margin-right: 0;
 }
-.nav-item:hover {
-    color:beige;
+.nav-link:hover {
+    color: black !important;
 }
+.carousel-item {
+    position: relative;
+    height: 60vh;
+  }
+  
+  .carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .carousel-caption {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    text-align: left;
+    color: white; /* Change text color */
+  }
+
+  .carousel-caption h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  .carousel-caption p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  .carousel-caption .btn {
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 10px;
+    background-color: red;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .carousel-caption {
+      right: 5%;
+      text-align: right;
+    }
+    .carousel-caption h2 {
+      font-size: 2rem;
+    }
+    .carousel-caption p {
+      font-size: 1rem;
+    }
+    .carousel-caption .btn {
+      font-size: 1rem;
+      padding: 8px 16px;
+    }
+  }
