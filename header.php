@@ -1,6 +1,14 @@
 <?php 
 session_start();
-?>
+if(isset($_GET['logout'])){
+  session_start();
+
+session_destroy(); // Destroy session
+
+// Ensure no output before this line
+header("Location: index.php?home=true");
+exit(); }// Always use exit() after header()
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,10 +46,9 @@ session_start();
       </button>
 
       <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-        <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-          <?php if(isset($_SESSION['username'])):?><li>
+        <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"><?php if(isset($_SESSION['username'])):?><li>
             <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
-              <i class="fa-regular fa-circle-user me-2"></i><?php echo ucfirst($_SESSION['username']);?></button>
+              <i class="fa-regular fa-circle-user me-2"></i><?php echo ucfirst($_SESSION['username']); ?></button>
             <div id="dropdownNavbar" class="z-50 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
               <ul class="py-2 text-sm text-gray-700 dark:text-gray-400">
                 <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"><i class="fa-solid fa-gear me-2"></i> Settings</a></li>
