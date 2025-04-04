@@ -1,4 +1,4 @@
-<?php include 'header.php';
+<?php include_once 'header.php';
 if(isset($_GET['login'])){
     include ('login.php');
 }

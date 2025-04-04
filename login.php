@@ -1,4 +1,5 @@
 <?php
+//ob_start(); // Start output buffering
 $showAlert = false;
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
 
@@ -10,11 +11,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     if (mysqli_num_rows($result) == 1) {
         $showAlert = true;
         $user = $result->fetch_assoc();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
         $_SESSION['username'] = $user['username'];
         header('location:index.php?home=true');
         exit();
     }
 }
+//ob_end_flush(); 
 ?>
 
 
