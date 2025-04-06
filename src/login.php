@@ -1,23 +1,26 @@
 <?php
 //ob_start(); // Start output buffering
 $showAlert = false;
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
-
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include 'partials/database.php';
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $sql = "select * from users where email='$email' and password='$password'";
-    $result = mysqli_query($conn, $sql);
-    if (mysqli_num_rows($result) == 1) {
-        $showAlert = true;
-        $user = $result->fetch_assoc();
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
+    if(isset($_POST['submit'])){
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        $sql = "select * from users where email='$email' and password='$password'";
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) == 1) {
+            $showAlert = true;
+            $user = $result->fetch_assoc();
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+            }
+            $_SESSION['username'] = $user['username'];
+            @header('location:index.php?home=true');
+            exit();
         }
-        $_SESSION['username'] = $user['username'];
-        header('location:index.php?home=true');
-        exit();
     }
+    
+   
 }
 //ob_end_flush(); 
 ?>
@@ -49,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
             <h2 class="text-2xl font-semibold mt-2">Login</h2>
         </div>
 
-        <form method="post" class="mt-4">
+        <form method="post" class="mt-4" action="login.php">
             <div class="flex flex-col">
                 <label for="email" class="text-gray-700 font-medium">
                     <i class="fa-solid fa-user mr-2"></i> Email:
