@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'&& isset($_POST['submit'])) {
     }
 }
 ?>
-
+<div class="pt-20 px-6">
 <?php
 if ($userexist) {
     echo '<div class="alert bg-green-100 border-l-4 border-green-500 text-green-700 p-4 m-2 rounded-md relative" role="alert">
@@ -76,10 +76,11 @@ if ($userexist) {
     }
 }
 ?>
+</div>
+<div class="flex items-center justify-center h-screen bg-gray-100 pt-20 px-6">
+<form method="post"  class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
 
-<!-- Full Screen Centered Form -->
-<div class="flex items-center justify-center h-screen bg-gray-100">
-    <form method="post" class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+
         <div class="text-center mb-6">
             <i class="fa-solid fa-user-plus text-4xl text-blue-500"></i>
             <h2 class="text-2xl font-bold text-gray-700 mt-2">Sign Up</h2>
