@@ -1,7 +1,7 @@
 <!-- 🌟 Navbar -->
 <main class="bg-gray-200">
-    
-    <nav class="bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 border-b border-gray-300 shadow-md pt-20 px-6">
+
+    <nav class="bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 border-b border-gray-300 shadow-md pt-3 px-6">
         <div class="max-w-screen-xl mx-auto">
             <ul class="flex space-x-6 p-4 text-black font-medium justify-center">
                 <li><a href="#" class="hover:text-blue-900">Shop All</a></li>
