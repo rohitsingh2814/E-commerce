@@ -16,6 +16,8 @@ exit(); }// Always use exit() after header()
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TechShop</title>
 <?php include 'partials/commonfiles.php';?>
+<link href="./output.css" rel="stylesheet">
+
 </head>
 <body>
 
