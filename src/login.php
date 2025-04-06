@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
             </p>
 
             <div class="text-center mt-4">
-                <button type="submit" name="submit"
+                <button type="submit" onlclick="reloadPage()" name="submit"
                     class="w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium">
                     Login <i class="fa-solid fa-arrow-right-to-bracket ml-2"></i>
                 </button>
@@ -95,9 +95,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
 
     <!-- JavaScript to Close Alerts -->
     <script>
-        function closeAlert(alertId) {
-            document.getElementById(alertId).style.display = 'none';
-        }
+       
+        function reloadPage() {
+        alert("Login successful!");
+    }
     </script>
 
     </div>

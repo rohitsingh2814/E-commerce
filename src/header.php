@@ -9,6 +9,8 @@ session_destroy(); // Destroy session
 header("Location: index.php?home=true");
 exit(); }// Always use exit() after header()
   ?>
+
+  
 <!DOCTYPE html>
 <html lang="en">
 <head>
