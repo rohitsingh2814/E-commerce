@@ -20,7 +20,10 @@ elseif(isset($_GET['cart'])){
 else{
     include ('home.php'); 
 }
+
+include_once 'footer.php';
 ?>
+
 
 
 <!-- dajhrhf -->
