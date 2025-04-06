@@ -19,7 +19,6 @@ exit(); }// Always use exit() after header()
   <title>TechShop</title>
 <?php include 'partials/commonfiles.php';?>
 <link href="./output.css" rel="stylesheet">
-
 </head>
 <body>
 
