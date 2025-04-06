@@ -1,24 +1,20 @@
-<?php 
-session_start();
-if(isset($_GET['logout'])){
+
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+  }
+
+if (isset($_GET['logout'])) {
   session_start();
+  session_destroy(); 
+  header("Location:/ecommece");
+  exit();
+} 
+?>
 
-session_destroy(); // Destroy session
+<header>
 
-// Ensure no output before this line
-header("Location: index.php?home=true");
-exit(); }// Always use exit() after header()
-  ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TechShop</title>
-<?php include 'partials/commonfiles.php';?>
-</head>
-<body>
-
+<!-- fixed top-0 left-0 w-full z-50 bg-white shadow-md -->
   <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="?home=true" class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -46,28 +42,24 @@ exit(); }// Always use exit() after header()
       </button>
 
       <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-        <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"><?php if(isset($_SESSION['username'])):?><li>
-            <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
-              <i class="fa-regular fa-circle-user me-2"></i><?php echo ucfirst($_SESSION['username']); ?></button>
-            <div id="dropdownNavbar" class="z-50 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
-              <ul class="py-2 text-sm text-gray-700 dark:text-gray-400">
-                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"><i class="fa-solid fa-gear me-2"></i> Settings</a></li>
-                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"><i class="fa-solid fa-bag-shopping me-2"></i> Orders</a></li>
-              </ul>
-              <div class="py-1">
-                <a href="?logout=true" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"><i class="fa-solid fa-user-minus me-2"></i> Sign out</a>
+        <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"><?php if(isset($_SESSION['username'])){?>
+            <li>
+              <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
+                <i class="fa-regular fa-circle-user me-2"></i><?php echo ucfirst($_SESSION['username']); ?></button>
+              <div id="dropdownNavbar" class="z-50 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-400">
+                  <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"><i class="fa-solid fa-gear me-2"></i> Settings</a></li>
+                  <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"><i class="fa-solid fa-bag-shopping me-2"></i> Orders</a></li>
+                </ul>
+                <div class="py-1">
+                  <a href="?logout=true" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"><i class="fa-solid fa-user-minus me-2"></i> Sign out</a>
+                </div>
               </div>
-            </div>
-          </li>
-          <?php else:?><li><a href="?login=true" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"><i class="fa-solid fa-user me-2"></i> Login</a></li>
-          <?php endif;?><li><a href="?wishlist=true" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"><i class="fa-regular fa-heart me-2"></i> Wishlist</a></li>
+            </li><?php }else{?><li><a href="?login=true" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"><i class="fa-solid fa-user me-2"></i> Login</a></li><?php }?><li><a href="?wishlist=true" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"><i class="fa-regular fa-heart me-2"></i> Wishlist</a></li>
           <li><a href="?cart=true" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"><i class="fa-solid fa-cart-shopping me-2"></i> Cart</a></li>
         </ul>
       </div>
     </div>
   </nav>
-
   <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-</body>
-</html>
-
+</header>
