@@ -5,35 +5,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TechShop</title>
-  <?php include 'partials/commonfiles.php'; ?>
+  <?php include './partials/commonfiles.php'; ?>
 </head>
 
-<body>
+<body class="bg-gray-200">
 <?php 
 
-include_once 'header.php';
+include_once './client/header.php';
 if(isset($_GET['login'])&&!isset($_SESSION['username'])){
-    include ('login.php');
+    include ('./client/login.php');
 }
 elseif(isset($_GET['signup'])&&!isset($_SESSION['username'])){
-    include ('signup.php');
+    include ('./client/signup.php');
 }
 elseif(isset($_GET['home'])){
-    include ('home.php');
+    include ('./client/home.php');
 }
 elseif(isset($_GET['wishlist'])){
-    include ('wishlist.php');
+    include ('./client/wishlist.php');
 }
 elseif(isset($_GET['cart'])){
-    include ('cart.php');
+    include ('./client/cart.php');
 }
 elseif(isset($_GET['product'])){
-    include ('product.php');
+    include ('./client/product.php');
+}
+elseif(isset($_GET['viewall'])){
+    include ('./client/viewall.php');
 }
 else{
-    include ('home.php'); 
+    include ('./client/home.php'); 
 }
-include_once 'footer.php';
+include_once './client/footer.php';
 ?>
   </body>
 </html>
