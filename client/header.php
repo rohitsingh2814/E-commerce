@@ -1,17 +1,8 @@
-
 <?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
-  }
-
-if (isset($_GET['logout'])) {
-  session_start();
-  session_destroy(); 
-  header("Location:/E-commerce");
-  exit();
-} 
+}
 ?>
-
 <header>
 
 <!-- fixed top-0 left-0 w-full z-50 bg-white shadow-md -->
@@ -52,7 +43,7 @@ if (isset($_GET['logout'])) {
                   <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"><i class="fa-solid fa-bag-shopping me-2"></i> Orders</a></li>
                 </ul>
                 <div class="py-1">
-                  <a href="?logout=true" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"><i class="fa-solid fa-user-minus me-2"></i> Sign out</a>
+                  <a href="/E-commerce/server/request.php?logout=true" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"><i class="fa-solid fa-user-minus me-2"></i> Sign out</a>
                 </div>
               </div>
             </li><?php }else{?><li><a href="?login=true" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"><i class="fa-solid fa-user me-2"></i> Login</a></li><?php }?><li><a href="?wishlist=true" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"><i class="fa-regular fa-heart me-2"></i> Wishlist</a></li>

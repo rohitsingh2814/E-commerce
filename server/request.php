@@ -2,9 +2,13 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
+if (isset($_GET['logout'])) {
+    session_start();
+    session_destroy(); 
+    header("Location:/E-commerce");
+    exit();
+  } 
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     include '../partials/database.php';
     $email = $_POST["email"];
     $password = $_POST["password"];
