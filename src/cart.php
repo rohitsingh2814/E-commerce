@@ -15,4 +15,4 @@ if (!isset($_SESSION['username'])) {
 include 'header.php';
 ?>
 
-<h1>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>! Here's your cart.</h1>
+
