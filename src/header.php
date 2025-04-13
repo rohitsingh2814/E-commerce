@@ -1,14 +1,15 @@
 <?php
-session_start();
-if (isset($_GET['logout'])) {
-  session_start();
-  session_unset();
-  session_destroy(); // Destroy session
+// REMOVE this if cart.php is already starting the session
+if (session_status() === PHP_SESSION_NONE) {
+  session_start(); // only if not already started
+}
 
-  // Ensure no output before this line
+if (isset($_GET['logout'])) {
+  session_unset();
+  session_destroy();
   header("Location: index.php?home=true");
   exit();
-} // Always use exit() after header()
+}
 ?>
 
 
@@ -68,8 +69,8 @@ if (isset($_GET['logout'])) {
           <?php else: ?><li><a href="?login=true" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"><i class="fa-solid fa-user me-2"></i> Login</a></li>
           <?php endif; ?>
           <li><a href="?wishlist=true" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"><i class="fa-regular fa-heart me-2"></i> Wishlist</a></li>
-          <li><a href="?cart=true" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"><i class="fa-solid fa-cart-shopping me-2"></i> Cart</a></li>
-          ?>
+          <li><a href="cart.php" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"><i class="fa-solid fa-cart-shopping me-2"></i> Cart</a></li>
+        
 
         </ul>
       </div>

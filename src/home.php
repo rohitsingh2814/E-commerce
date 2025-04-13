@@ -1,6 +1,4 @@
-<?php
-   session_start();
-?>
+
 <!-- 🌟 Navbar -->
 <main class="bg-gray-200">
 
