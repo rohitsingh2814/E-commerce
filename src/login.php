@@ -13,7 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $user = $result->fetch_assoc();
             if (session_status() === PHP_SESSION_NONE) {
                 session_start();
+
             }
+            $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $user['username'];
             @header('location:index.php?home=true');
             exit();

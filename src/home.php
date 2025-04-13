@@ -243,15 +243,7 @@
     <img src="images/help.png" alt="Laptop with headphones"
          class="w-full h-64 md:h-full object-cover" />
   </div>
+  
 </section>
-
-
-
-
-
-
-
-
-
 
 </main>
