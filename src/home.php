@@ -123,7 +123,7 @@
       <div id="carousel" class="flex overflow-x-scroll scroll-smooth gap-4 px-10 py-4 scrollbar-hide">
         
     
-        <a href="product1.html" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
+        <a href="product.php" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
           <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
           <img src="https://plus.unsplash.com/premium_photo-1681139760927-4c510ce6d8f0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aXBhZHxlbnwwfHwwfHx8MA%3D%3D" alt="Tablet" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
           <h3 class="text-sm font-semibold">JP - Space Tablet 10.4" Wi-Fi 32GB</h3>
@@ -132,7 +132,7 @@
         </a>
 
         <!-- Product Card 2 -->
-        <a href="product2.html" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
+        <a href="product.php" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
           <span class="absolute top-2 left-2 pb-15 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
           <img src="https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Tablet 2" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110" width="30">
           <h3 class="text-sm font-semibold">Ocean Pro 11 - 12.3" Touch Screen</h3>
@@ -141,7 +141,7 @@
         </a>
 
         <!-- Product Card 3 -->
-        <a href="product3.html" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
+        <a href="product.php" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
           <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
           <img src="https://images.unsplash.com/photo-1615986200762-a1ed9610d3b1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNtYXJ0JTIwVFZ8ZW58MHx8MHx8fDA%3D" alt="Smart TV" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
           <h3 class="text-sm font-semibold">Shel 50" Class LED 4K UHD Smart TV</h3>
@@ -149,7 +149,7 @@
         </a>
 
         <!-- Product Card 4 -->
-        <a href="product4.html" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
+        <a href="product.php" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
           <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
           <img src="https://media.istockphoto.com/id/1150952747/photo/close-up-of-legs-and-feet-of-football-player-in-blue-socks-and-shoes-running-and-dribbling.webp?a=1&b=1&s=612x612&w=0&k=20&c=6egpjg660pyymHJliYMbhEj36NcEPDhBWEYDlU4qEwE=" alt="Fitband" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
           <h3 class="text-sm font-semibold">Fitboot Inspire Fitness Tracker</h3>
@@ -158,7 +158,7 @@
         </a>
 
         <!-- Product Card 5 -->
-        <a href="product5.html" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
+        <a href="product.php" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
           <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
           <img src="https://images.unsplash.com/photo-1730818876478-71b9f7ef1163?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHNtYXJ0JTIwcGhvbmUlMjB6JTIwcGl4ZWx8ZW58MHx8MHx8fDA%3D" alt="Phone" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
           <h3 class="text-sm font-semibold">Smartphone Z Pixel Max 128GB</h3>
@@ -167,7 +167,7 @@
         </a>
 
         <!-- Product Card 6 -->
-        <a href="product6.html" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
+        <a href="product.php" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
           <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
           <img src="https://images.unsplash.com/photo-1601944177325-f8867652837f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c21hcnQlMjBUVnxlbnwwfHwwfHx8MA%3D%3D" alt="Nano TV" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
           <h3 class="text-sm font-semibold">65" Class Nano LED 4K UHD Smart TV</h3>
@@ -175,7 +175,7 @@
           <p class="text-purple-600 font-bold">$70.00</p>
         </a>
 
-        <a href="product6.html" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
+        <a href="product.php" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
           <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
           <img src="https://images.unsplash.com/photo-1601944179066-29786cb9d32a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c21hcnQlMjBUVnxlbnwwfHwwfHx8MA%3D%3D" alt="Nano TV" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
           <h3 class="text-sm font-semibold">65" Class Nano LED 4K UHD Smart TV</h3>
@@ -231,7 +231,7 @@
       <p class="mb-6 text-gray-300 text-sm md:text-base">
         I'm a paragraph. Click here to add your own text and edit me. Let your users get to know you.
       </p>
-      <a href="?help=true">
+      <a href="index.php?help=true">
         <button class="px-6 py-2 border border-purple-400 text-purple-400 rounded-full hover:bg-purple-400 hover:text-white transition-all">
           Go to Help Center
         </button>

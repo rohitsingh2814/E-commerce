@@ -28,6 +28,8 @@ elseif(isset($_GET['cart'])){
 }
 elseif(isset($_GET['product'])){
     include ('product.php');
+}elseif(isset($_GET['help'])){
+    include ('help.php');
 }
 else{
     include ('home.php'); 
