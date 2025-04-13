@@ -12,7 +12,7 @@ if (!isset($_SESSION['username'])) {
 }
 
 // ✅ Now safe to include header
-include 'header.php';
+
 ?>
 
 
