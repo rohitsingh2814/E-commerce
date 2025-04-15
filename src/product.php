@@ -1,3 +1,4 @@
+<?php include 'header.php'; ?>
 <?php
 // Start session if not started
 if (session_status() === PHP_SESSION_NONE) {
@@ -6,79 +7,94 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Check if user is not logged in
 if (!isset($_SESSION['username'])) {
-  // Redirect to login
   header('Location: index.php?login=true');
   exit();
 }
 
-// ✅ Now safe to include header
+// Include DB connection
+include('Admin/db.php');
 
+// Check if ID is passed
+if (!isset($_GET['id'])) {
+  echo "No product selected.";
+  exit();
+}
+
+$id = intval($_GET['id']); // Secure the input
+
+// Fetch product by ID
+$sql = "SELECT * FROM products WHERE id = $id";
+$result = $conn->query($sql);
+
+if ($result->num_rows === 0) {
+  echo "Product not found.";
+  exit();
+}
+
+$row = $result->fetch_assoc();
+$name = $row['name'];
+$image = $row['image'];
+$description = $row['description'];
 ?>
 
-<!-- <?php include 'header.php'?> -->
-
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
 <div class="flex items-center justify-center h-200 bg-gray-100 pt-10 w-300">
+  <div class="flex lg:flex-row gap-10">
 
-   
+    <!-- Product Image -->
+    <div class="flex-1 flex justify-center items-start">
+      <img src="Admin/uploads/<?php echo $image; ?>" alt="<?php echo $name; ?>" class="w-full max-w-sm rounded shadow-md">
+    </div>
 
+    <!-- Product Info -->
+    <div class="flex-1 space-y-4">
+      <h1 class="text-2xl font-bold"><?php echo $name; ?></h1>
+      <p class="text-gray-500 text-sm">SKU: 001</p>
+      <p class="text-xl font-semibold text-gray-800">$85.00</p>
 
-<div class="flex lg:flex-row gap-10">
-
-      <!-- Product Image -->
-      <div class="flex-1 flex justify-center items-start">
-        <img src="images/tv.png" alt="Smart TV" class="w-full max-w-sm rounded shadow-md">
+      <!-- Quantity Selector -->
+      <div>
+        <label class="block font-medium mb-1">Quantity</label>
+        <div class="flex items-center border w-max rounded">
+          <button class="px-3 py-1">−</button>
+          <input id="qty" type="number" value="1" min="1" class="w-12 text-center border-x outline-none" />
+          <button class="px-3 py-1">+</button>
+        </div>
       </div>
 
-      <!-- Product Info -->
-      <div class="flex-1 space-y-4">
-        <h1 class="text-2xl font-bold">Shel 50" Class LED 4K UHD Smart TV</h1>
-        <p class="text-gray-500 text-sm">SKU: 001</p>
-        <p class="text-xl font-semibold text-gray-800">$85.00</p>
+      <!-- Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 mt-4">
+        <button class="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition">Add to Cart</button>
+        <button class="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition">Buy Now</button>
+      </div>
 
-        <!-- Quantity Selector -->
-        <div>
-          <label class="block font-medium mb-1">Quantity</label>
-          <div class="flex items-center border w-max rounded">
-            <button class="px-3 py-1" >−</button>
-            <input id="qty" type="number" value="1" min="1" class="w-12 text-center border-x outline-none" />
-            <button class="px-3 py-1"">+</button>
-          </div>
-        </div>
+      <!-- Description -->
+      <div>
+        <p class="text-gray-600 text-sm mt-6">
+          <?php echo $description; ?>
+        </p>
+      </div>
 
-        <!-- Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 mt-4">
-          <button class="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition">Add to Cart</button>
-          <button class="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition">Buy Now</button>
-        </div>
+      <!-- Accordions -->
+      <div class="mt-8 space-y-4">
+        <details class="bg-gray-100 rounded p-4">
+          <summary class="cursor-pointer font-medium">Product Info</summary>
+          <p class="mt-2 text-sm text-gray-600">More info about sizing, materials, etc.</p>
+        </details>
 
-        <!-- Description -->
-        <div>
-          <p class="text-gray-600 text-sm mt-6">
-            I'm a product description. This is a great place to "sell" your product and grab buyers' attention. Describe your product clearly and concisely. Use unique keywords. Write your own description instead of using manufacturers' copy.
-          </p>
-        </div>
+        <details class="bg-gray-100 rounded p-4">
+          <summary class="cursor-pointer font-medium">Return & Refund Policy</summary>
+          <p class="mt-2 text-sm text-gray-600">Returns within 14 days. Full refund policy here.</p>
+        </details>
 
-        <!-- Accordions -->
-        <div class="mt-8 space-y-4">
-          <details class="bg-gray-100 rounded p-4">
-            <summary class="cursor-pointer font-medium">Product Info</summary>
-            <p class="mt-2 text-sm text-gray-600">More info about sizing, materials, etc.</p>
-          </details>
-
-          <details class="bg-gray-100 rounded p-4">
-            <summary class="cursor-pointer font-medium">Return & Refund Policy</summary>
-            <p class="mt-2 text-sm text-gray-600">Returns within 14 days. Full refund policy here.</p>
-          </details>
-
-          <details class="bg-gray-100 rounded p-4">
-            <summary class="cursor-pointer font-medium">Shipping Info</summary>
-            <p class="mt-2 text-sm text-gray-600">Ships within 2-4 business days. Tracking included.</p>
-          </details>
-        </div>
+        <details class="bg-gray-100 rounded p-4">
+          <summary class="cursor-pointer font-medium">Shipping Info</summary>
+          <p class="mt-2 text-sm text-gray-600">Ships within 2-4 business days. Tracking included.</p>
+        </details>
       </div>
     </div>
+  </div>
 </div>
 
-
-<?php  include 'footer.php'?>
+<?php include 'footer.php'; ?>

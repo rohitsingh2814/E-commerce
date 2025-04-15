@@ -124,25 +124,28 @@
       <div id="carousel" class="flex overflow-x-scroll scroll-smooth gap-4 px-10 py-4 scrollbar-hide">
 
 
-        <?php
-        include('Admin/db.php');
+      <?php
+include('Admin/db.php');
 
-        $sql = "SELECT * FROM products";
-        $result = $conn->query($sql);
+$sql = "SELECT * FROM products";
+$result = $conn->query($sql);
 
-        while ($row = $result->fetch_assoc()) {
-          $name = $row['name'];
-          $image = $row['image']; // Assuming you want to display your uploaded image
-          echo '
-    <a href="product.php" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
-      <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
-      <img src="Admin/uploads/' . $image . '" alt="' . $name . '" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
-      <h3 class="text-sm font-semibold">' . $name . '</h3>
-      <p class="text-purple-700 line-through text-sm">$85.00</p>
-      <p class="text-purple-600 font-bold">$70.00</p>
-    </a>';
-        }
-        ?>
+while ($row = $result->fetch_assoc()) {
+  $id = $row['id'];
+  $name = $row['name'];
+  $image = $row['image'];
+
+  echo '
+<a href="product.php?id=' . $id . '" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
+  <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
+  <img src="Admin/uploads/' . $image . '" alt="' . $name . '" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
+  <h3 class="text-sm font-semibold">' . $name . '</h3>
+  <p class="text-purple-700 line-through text-sm">$85.00</p>
+  <p class="text-purple-600 font-bold">$70.00</p>
+</a>';
+}
+?>
+
 
 
       </div>
