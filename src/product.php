@@ -15,6 +15,7 @@ if (!isset($_SESSION['username'])) {
 
 ?>
 
+<!-- <?php include 'header.php'?> -->
 
 
 <div class="flex items-center justify-center h-200 bg-gray-100 pt-10 w-300">
@@ -78,3 +79,6 @@ if (!isset($_SESSION['username'])) {
       </div>
     </div>
 </div>
+
+
+<?php  include 'footer.php'?>

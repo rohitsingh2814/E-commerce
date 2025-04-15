@@ -78,7 +78,7 @@
       <h3 class="text-lg font-medium">Just In</h3>
       <h2 class="text-5xl font-bold mt-2">Take Your<br>Sound Anywhere</h2>
       <p class="mt-4 text-sm">Top Headphone Brands</p>
-      <a href="headphones.html" class="inline-block mt-6">
+      <a href="index.php?product=true" class="inline-block mt-6">
         <div class="px-6 py-2 bg-white text-blue-400 rounded-full font-semibold hover:bg-gray-500 transition duration-200">
           Shop
         </div>
