@@ -1,5 +1,5 @@
 <!-- 🌟 Navbar -->
-
+<?php include('Admin/db.php') ?>
 
 <main class="bg-gray-200">
 
@@ -124,65 +124,26 @@
       <div id="carousel" class="flex overflow-x-scroll scroll-smooth gap-4 px-10 py-4 scrollbar-hide">
 
 
-        <a href="product.php" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
-          <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
-          <img src="https://plus.unsplash.com/premium_photo-1681139760927-4c510ce6d8f0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aXBhZHxlbnwwfHwwfHx8MA%3D%3D" alt="Tablet" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
-          <h3 class="text-sm font-semibold">JP - Space Tablet 10.4" Wi-Fi 32GB</h3>
-          <p class="text-purple-700 line-through text-sm">$85.00</p>
-          <p class="text-purple-600 font-bold">$70.00</p>
-        </a>
+        <?php
+        include('Admin/db.php');
 
-        <!-- Product Card 2 -->
-        <a href="product.php" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
-          <span class="absolute top-2 left-2 pb-15 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
-          <img src="https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Tablet 2" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110" width="30">
-          <h3 class="text-sm font-semibold">Ocean Pro 11 - 12.3" Touch Screen</h3>
-          <p class="text-purple-700 line-through text-sm">$85.00</p>
-          <p class="text-purple-600 font-bold">$70.00</p>
-        </a>
+        $sql = "SELECT * FROM products";
+        $result = $conn->query($sql);
 
-        <!-- Product Card 3 -->
-        <a href="product.php" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
-          <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
-          <img src="https://images.unsplash.com/photo-1615986200762-a1ed9610d3b1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNtYXJ0JTIwVFZ8ZW58MHx8MHx8fDA%3D" alt="Smart TV" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
-          <h3 class="text-sm font-semibold">Shel 50" Class LED 4K UHD Smart TV</h3>
-          <p class="text-purple-600 font-bold">$85.00</p>
-        </a>
+        while ($row = $result->fetch_assoc()) {
+          $name = $row['name'];
+          $image = $row['image']; // Assuming you want to display your uploaded image
+          echo '
+    <a href="product.php" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
+      <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
+      <img src="Admin/uploads/' . $image . '" alt="' . $name . '" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
+      <h3 class="text-sm font-semibold">' . $name . '</h3>
+      <p class="text-purple-700 line-through text-sm">$85.00</p>
+      <p class="text-purple-600 font-bold">$70.00</p>
+    </a>';
+        }
+        ?>
 
-        <!-- Product Card 4 -->
-        <a href="product.php" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
-          <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
-          <img src="https://media.istockphoto.com/id/1150952747/photo/close-up-of-legs-and-feet-of-football-player-in-blue-socks-and-shoes-running-and-dribbling.webp?a=1&b=1&s=612x612&w=0&k=20&c=6egpjg660pyymHJliYMbhEj36NcEPDhBWEYDlU4qEwE=" alt="Fitband" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
-          <h3 class="text-sm font-semibold">Fitboot Inspire Fitness Tracker</h3>
-          <p class="text-purple-700 line-through text-sm">$85.00</p>
-          <p class="text-purple-600 font-bold">$70.00</p>
-        </a>
-
-        <!-- Product Card 5 -->
-        <a href="product.php" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
-          <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
-          <img src="https://images.unsplash.com/photo-1730818876478-71b9f7ef1163?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHNtYXJ0JTIwcGhvbmUlMjB6JTIwcGl4ZWx8ZW58MHx8MHx8fDA%3D" alt="Phone" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
-          <h3 class="text-sm font-semibold">Smartphone Z Pixel Max 128GB</h3>
-          <p class="text-purple-700 line-through text-sm">$85.00</p>
-          <p class="text-purple-600 font-bold">$70.00</p>
-        </a>
-
-        <!-- Product Card 6 -->
-        <a href="product.php" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
-          <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
-          <img src="https://images.unsplash.com/photo-1601944177325-f8867652837f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c21hcnQlMjBUVnxlbnwwfHwwfHx8MA%3D%3D" alt="Nano TV" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
-          <h3 class="text-sm font-semibold">65" Class Nano LED 4K UHD Smart TV</h3>
-          <p class="text-purple-700 line-through text-sm">$85.00</p>
-          <p class="text-purple-600 font-bold">$70.00</p>
-        </a>
-
-        <a href="product.php" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative border hover:shadow-lg transition">
-          <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
-          <img src="https://images.unsplash.com/photo-1601944179066-29786cb9d32a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c21hcnQlMjBUVnxlbnwwfHwwfHx8MA%3D%3D" alt="Nano TV" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
-          <h3 class="text-sm font-semibold">65" Class Nano LED 4K UHD Smart TV</h3>
-          <p class="text-purple-700 line-through text-sm">$85.00</p>
-          <p class="text-purple-600 font-bold">$70.00</p>
-        </a>
 
       </div>
 
