@@ -34,7 +34,7 @@ elseif(isset($_GET['viewall'])){
     include ('./client/viewall.php');
 }
 elseif(isset($_GET['help'])){
-    include ('./client/help.php');
+    include ('./client/from.php');
 }
 else{
     include ('./client/home.php'); 
