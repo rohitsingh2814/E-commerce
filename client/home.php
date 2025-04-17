@@ -22,7 +22,7 @@
         <div class="relative h-64 md:h-96 overflow-hidden">
             <!-- Slide 1 -->
             <div class="hidden duration-[1000ms] ease-in-out" data-carousel-item>
-                <img src="/E-commerce/images/home1.avif" class="w-full  object-cover" alt="TechShop">
+                <img src="images/home1.avif" class="w-full  object-cover" alt="TechShop">
                 <div class="absolute inset-0 flex flex-col justify-center items-center  text-black p-6 text-center">
                     <h2 class="text-5xl font-bold">Welcome to TechShop</h2>
                     <p class="text-lg">Your One-Stop Destination for the Latest Gadgets</p>
@@ -30,7 +30,7 @@
             </div>
             <!-- Slide 2 -->
             <div class="hidden duration-[1000ms] ease-in-out" data-carousel-item>
-                <img src="/E-commerce/images/hom2.gif" class="w-full h-full object-cover" alt="Latest Gadgets">
+                <img src="images/hom2.gif" class="w-full h-full object-cover" alt="Latest Gadgets">
                 <div class="absolute inset-0 flex flex-col justify-center items-center  text-white p-6 text-center">
                     <h2 class="text-5xl font-bold">Fastest Devilery!</h2>
                     <p class="text-lg">Upgrade Your Tech Game Today</p>
@@ -38,7 +38,7 @@
             </div>
             <!-- Slide 3 -->
             <div class="hidden duration-[1000ms] ease-in-out" data-carousel-item>
-                <img src="/E-commerce/images/home3.gif" class="w-full h-full object-cover" alt="Best Deals">
+                <img src="images/home3.gif" class="w-full h-full object-cover" alt="Best Deals">
                 <div class="absolute inset-0 flex flex-col justify-center items-center  text-black p-6 text-center">
                     <h2 class="text-5xl font-bold">Biggest Tech Deals of the Year</h2>
                     <p class="text-lg">Hurry! Limited Stock Available</p>
@@ -119,67 +119,36 @@
     <div class="relative">
     
       <div id="carousel" class="flex overflow-x-scroll scroll-smooth gap-4 px-10 py-4 scrollbar-hide">
-        
+      <?php
+    include 'partials/database.php';
+
+    $query = "SELECT * FROM product ORDER BY product_id DESC";
+    $result = mysqli_query($conn, $query);
+?>
     
-        <a href="./index.php/?product=true" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative hover:shadow-lg transition">
-          <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
-          <img src="#" alt="Tablet" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
-          <h3 class="text-sm font-semibold">JP - Space Tablet 10.4" Wi-Fi 32GB</h3>
-          <p class="text-purple-700 line-through text-sm">$85.00</p>
-          <p class="text-purple-600 font-bold">$70.00</p>
-        </a>
+    <div id="carousel" class="flex overflow-x-scroll scroll-smooth gap-4 px-10 py-4 scrollbar-hide">
 
-        <!-- Product Card 2 -->
-        <a href="./index.php/?product=true" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative  hover:shadow-lg transition">
-          <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
-          <img src="images/tab2.jpg" alt="Tablet 2" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
-          <h3 class="text-sm font-semibold">Ocean Pro 11 - 12.3" Touch Screen</h3>
-          <p class="text-purple-700 line-through text-sm">$85.00</p>
-          <p class="text-purple-600 font-bold">$70.00</p>
-        </a>
+    <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+        <a href="./index.php?product_id=<?= $row['product_id'] ?>" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative hover:shadow-lg transition">
+            
+            <div class="relative">
+                <?php if ($row['product_image']) : ?>
+                    <img src="uploads/<?= htmlspecialchars($row['product_image']) ?>" alt="<?= htmlspecialchars($row['product_name']) ?>" class="relative z-0 w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
+                <?php else : ?>
+                    <img src="https://via.placeholder.com/150" alt="No Image" class="relative z-0 w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
+                <?php endif; ?>
 
-        <!-- Product Card 3 -->
-        <a href="./index.php/?product=true" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative  hover:shadow-lg transition">
-          <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
-          <img src="images/tv.jpg" alt="Smart TV" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
-          <h3 class="text-sm font-semibold">Shel 50" Class LED 4K UHD Smart TV</h3>
-          <p class="text-purple-600 font-bold">$85.00</p>
-        </a>
+                <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded z-10">SALE</span>
+            </div>
 
-        <!-- Product Card 4 -->
-        <a href="./index.php/?product=true" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative  hover:shadow-lg transition">
-          <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
-          <img src="images/fitband.jpg" alt="Fitband" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
-          <h3 class="text-sm font-semibold">Fitboot Inspire Fitness Tracker</h3>
-          <p class="text-purple-700 line-through text-sm">$85.00</p>
-          <p class="text-purple-600 font-bold">$70.00</p>
+            <h3 class="text-sm font-semibold"><?= htmlspecialchars($row['product_name']) ?></h3>
+            <p class="text-purple-700 line-through text-sm">$<?= $row['product_price'] + 15 ?>.00</p>
+            <p class="text-purple-600 font-bold">$<?= $row['product_price'] ?>.00</p>
         </a>
+    <?php endwhile; ?>
 
-        <!-- Product Card 5 -->
-        <a href="./index.php/?product=true" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative  hover:shadow-lg transition">
-          <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
-          <img src="images/phone.jpg" alt="Phone" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
-          <h3 class="text-sm font-semibold">Smartphone Z Pixel Max 128GB</h3>
-          <p class="text-purple-700 line-through text-sm">$85.00</p>
-          <p class="text-purple-600 font-bold">$70.00</p>
-        </a>
+</div>
 
-        <!-- Product Card 6 -->
-        <a href="./index.php/?product=true" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative  hover:shadow-lg transition">
-          <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
-          <img src="images/nano-tv.jpg" alt="Nano TV" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
-          <h3 class="text-sm font-semibold">65" Class Nano LED 4K UHD Smart TV</h3>
-          <p class="text-purple-700 line-through text-sm">$85.00</p>
-          <p class="text-purple-600 font-bold">$70.00</p>
-        </a>
-
-        <a href="./index.php/?product=true" class="min-w-[200px] max-w-[220px] bg-white p-4 shadow rounded relative hover:shadow-lg transition">
-          <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">SALE</span>
-          <img src="images/nano-tv.jpg" alt="Nano TV" class="w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
-          <h3 class="text-sm font-semibold">65" Class Nano LED 4K UHD Smart TV</h3>
-          <p class="text-purple-700 line-through text-sm">$85.00</p>
-          <p class="text-purple-600 font-bold">$70.00</p>
-        </a>
 
       </div>
 
@@ -188,7 +157,7 @@
     </div>
 
     <div class="text-center mt-6">
-      <a href="./index.php/?viewall=true">
+      <a href="index.php?viewall=true">
         <button class="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition">View All</button>
       </a>
     </div>
@@ -229,7 +198,7 @@
       <p class="mb-6 text-gray-300 text-sm md:text-base">
         I'm a paragraph. Click here to add your own text and edit me. Let your users get to know you.
       </p>
-      <a href="./index.php/?help=true">
+      <a href="./index.php?help=true">
         <button class="px-6 py-2 border border-purple-400 text-purple-400 rounded-full hover:bg-purple-400 hover:text-white transition-all">
           Go to Help Center
         </button>
@@ -239,7 +208,7 @@
 
   <!-- Right Image Section -->
   <div class="w-full md:w-1/2">
-    <img src="/E-commerce/images/help.png" alt="Laptop with headphones"
+    <img src="images/help.png" alt="Laptop with headphones"
          class="w-full h-64 md:h-full object-cover" />
   </div>
 </section>

@@ -27,11 +27,14 @@ elseif(isset($_GET['wishlist'])){
 elseif(isset($_GET['cart'])){
     include ('./client/cart.php');
 }
-elseif(isset($_GET['product'])){
+elseif(isset($_GET['product_id'])){
     include ('./client/product.php');
 }
 elseif(isset($_GET['viewall'])){
     include ('./client/viewall.php');
+}
+elseif(isset($_GET['help'])){
+    include ('./client/help.php');
 }
 else{
     include ('./client/home.php'); 

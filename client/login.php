@@ -12,7 +12,7 @@
             <h2 class="text-2xl font-semibold mt-2">Login</h2>
         </div>
 
-        <form method="post" action="/E-commerce/server/request.php" class="mt-4">
+        <form method="post" action="server/request.php" class="mt-4">
             <div class="flex flex-col">
                 <label for="email" class="text-gray-700 font-medium">
                     <i class="fa-solid fa-user mr-2"></i> Email:
@@ -56,7 +56,6 @@
     </div>
 </div>
 
-<!-- JS for alert -->
 <script>
     function closeAlert(alertId) {
         document.getElementById(alertId).style.display = 'none';
