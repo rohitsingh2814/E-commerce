@@ -39,7 +39,7 @@
                 <li><a href="#" class="text-gray-400 hover:text-gray-200">Contact Us</a></li>
                 <li><a href="#" class="text-gray-400 hover:text-gray-200">Help Center</a></li>
                 <li><a href="#" class="text-gray-400 hover:text-gray-200">About Us</a></li>
-                <li><a href="server/request.php?admin=true" class="text-gray-400 hover:text-gray-200">Admin</a></li>
+                <li><a href="Admin/admin.php" class="text-gray-400 hover:text-gray-200">Admin</a></li>
             </ul>
         </div>
 

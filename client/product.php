@@ -21,7 +21,7 @@ if (!$product) {
 
     <!-- Product Image -->
     <div class="flex-1 flex justify-center items-start">
-      <img src="<?= $product['product_image'] ? 'uploads/' . htmlspecialchars($product['product_image']) : 'https://via.placeholder.com/300' ?>" 
+      <img src="<?= $product['product_image'] ? 'Admin/productimge/' . htmlspecialchars($product['product_image']) : 'https://via.placeholder.com/300' ?>" 
            alt="<?= htmlspecialchars($product['product_name']) ?>" 
            class="w-full max-w-sm rounded shadow-md object-contain">
     </div>

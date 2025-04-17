@@ -53,4 +53,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_to_cart'])) {
     exit();
 }
 
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['product_id'])) {
+    include '../partials/database.php';
+
+    $product_id = $_POST['product_id'];
+
+    // Sanitize input
+    $product_id = mysqli_real_escape_string($conn, $product_id);
+
+    // Delete item from cart
+    $sql = "DELETE FROM cart WHERE product_id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "s", $product_id);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+    }
+
+    mysqli_close($conn);
+
+    // Redirect back to cart page
+    header("Location: ../index.php?cart=true");
+    exit();
+} else {
+    // Invalid request
+    header("Location: ../index.php?cart=true");
+    exit();
+}
+
+
 ?>

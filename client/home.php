@@ -133,7 +133,7 @@
             
             <div class="relative">
                 <?php if ($row['product_image']) : ?>
-                    <img src="uploads/<?= htmlspecialchars($row['product_image']) ?>" alt="<?= htmlspecialchars($row['product_name']) ?>" class="relative z-0 w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
+                    <img src="Admin/productimge/<?= htmlspecialchars($row['product_image']) ?>" alt="<?= htmlspecialchars($row['product_name']) ?>" class="relative z-0 w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
                 <?php else : ?>
                     <img src="https://via.placeholder.com/150" alt="No Image" class="relative z-0 w-full h-32 object-contain mb-4 transform transition-transform duration-300 hover:scale-110">
                 <?php endif; ?>

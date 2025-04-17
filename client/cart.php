@@ -22,7 +22,7 @@ $subtotal = 0;
           <?php $subtotal += $item_total; ?>
 
           <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow hover:shadow-md transition">
-            <img src="<?= htmlspecialchars($row['product_image']) ?>" alt="Product" class="w-20 h-20 object-cover rounded-lg" />
+            <img src="Admin/productimge/<?= htmlspecialchars($row['product_image']) ?>" alt="Product" class="w-20 h-20 object-cover rounded-lg" />
 
             <div class="flex-1">
               <h3 class="text-lg font-semibold"><?= htmlspecialchars($row['product_name']) ?></h3>
@@ -36,7 +36,7 @@ $subtotal = 0;
 
             <div class="text-right">
               <p class="text-lg font-semibold text-gray-800">$<?= number_format($item_total, 2) ?></p>
-              <form action="remove_from_cart.php" method="POST">
+              <form action="server/request.php" method="POST">
                 <input type="hidden" name="product_id" value="<?= htmlspecialchars($row['product_id']) ?>">
                 <button type="submit" class="text-red-600 hover:underline text-sm mt-1">Remove</button>
               </form>
