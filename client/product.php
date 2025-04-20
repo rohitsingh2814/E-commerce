@@ -1,4 +1,7 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
 include 'partials/database.php';
 // Fetch product from database using GET id
 $product_id = $_GET['product_id'] ?? 0;
@@ -41,8 +44,8 @@ if (!$product) {
     <button type="button" id="increment" class="px-3 py-1">+</button>
   </div>
 </div>
-
-      <!-- Buttons -->
+<?php if(isset($_SESSION['username'])){?>
+    
       <div class="flex flex-col sm:flex-row gap-4 mt-4">
       <form action="server/request.php" method="POST" class="inline">
   <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
@@ -51,14 +54,33 @@ if (!$product) {
     Add to Cart
   </button>
 </form>
-
-        <button class="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition"><i class="fa-regular fa-heart"></i> wishlist</button>
-      </div>
+<form action="server/request.php" method="POST" class="inline">
+  <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
+  <input type="hidden" name="quantity" id="qty-value" value="1">
+<button class="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition" name="add_to_wishlist"><i class="fa-regular fa-heart"></i> wishlist</button>
+</form> 
+</div>
+<?php } else { ?>
+  <div class="flex flex-col sm:flex-row gap-4 mt-4">
+      <form action="index.php?login=true" method="POST" class="inline">
+  <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
+  <input type="hidden" name="quantity" id="qty-value" value="1">
+  <button type="submit" name="add_to_cart" class="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition">
+    Add to Cart
+  </button>
+</form>
+<form action="index.php?login=true" method="POST" class="inline">
+  <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
+  <input type="hidden" name="quantity" id="qty-value" value="1">
+<button class="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition"><i class="fa-regular fa-heart"></i> wishlist</button>
+</form> 
+</div>
+<?php } ?> 
 
       <!-- Description -->
       <div>
         <p class="text-gray-600 text-sm mt-6">
-          <?= nl2br(htmlspecialchars($product['product_desc'] ?? "No description available.")) ?>
+          <?= (htmlspecialchars($product['product_desc'] ?? "No description available.")) ?>
         </p>
       </div>
 
@@ -66,7 +88,7 @@ if (!$product) {
       <div class="mt-8 space-y-4">
         <details class="bg-gray-100 rounded p-4">
           <summary class="cursor-pointer font-medium">Product Info</summary>
-          <p class="mt-2 text-sm text-gray-600">More info about sizing, materials, etc.</p>
+          <p class="mt-2 text-sm text-gray-600"><?php echo htmlspecialchars($product['product_info']);?> </p>
         </details>
 
         <details class="bg-gray-100 rounded p-4">

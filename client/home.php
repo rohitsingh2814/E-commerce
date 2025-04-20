@@ -1,20 +1,19 @@
 <!-- 🌟 Navbar -->
 <main class="bg-gray-200">
-    <nav class="bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 border-b border-gray-300 shadow-md pt-20 px-5">
-        <div class="max-w-screen-xl mx-auto">
-            <ul class="flex space-x-6 p-4 text-black font-medium justify-center">
-                <li><a href="#" class="hover:text-blue-900">Shop All</a></li>
-                <li><a href="#" class="hover:text-blue-900">Computers</a></li>
-                <li><a href="#" class="hover:text-blue-900">Tablets</a></li>
-                <li><a href="#" class="hover:text-blue-900">Drones & Cameras</a></li>
-                <li><a href="#" class="hover:text-blue-900">Audio</a></li>
-                <li><a href="#" class="hover:text-blue-900">Mobile</a></li>
-                <li><a href="#" class="hover:text-blue-900">T.V & Home Cinema</a></li>
-                <li><a href="#" class="hover:text-blue-900">Wearable Tech</a></li>
-                <li><a href="#" class="hover:text-blue-900 text-red-600 font-bold">Sale</a></li>
-            </ul>
-        </div>
-    </nav>
+<nav class="bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 border-b border-gray-300 shadow-md pt-20 px-5">
+    <div class="max-w-screen-xl mx-auto">
+        <ul class="flex space-x-6 p-4 text-black font-medium justify-center">
+            <li><a href="index.php?category=all" class="hover:text-blue-900">Shop All</a></li>
+            <li><a href="index.php?category=computers" class="hover:text-blue-900">Computers</a></li>
+            <li><a href="index.php?category=Tablets" class="hover:text-blue-900">Tablets</a></li>
+            <li><a href="index.php?category=Drones and camera" class="hover:text-blue-900">Drones & Cameras</a></li>
+            <li><a href="index.php?category=Audio" class="hover:text-blue-900">Audio</a></li>
+            <li><a href="index.php?category=Mobile" class="hover:text-blue-900">Mobile</a></li>
+            <li><a href="index.php?category=Television" class="hover:text-blue-900">TV & Home Cinema</a></li>
+            <li><a href="index.php?category=Wearable Tech" class="hover:text-blue-900">Wearable Tech</a></li>
+        </ul>
+    </div>
+</nav>
 
     <!-- 🌟 Carousel -->
     <div id="carousel" class="relative w-full" data-carousel="slide">
@@ -58,11 +57,11 @@
     <div class="flex space-x-4 mt-6 px-4">
   <!-- Smartphone Card -->
   <div class="bg-red-600 text-white p-8 w-1/2 h-80 bg-cover bg-center"
-    style="background-image: url('/E-commerce/images/promo2.avif');">
+    style="background-image: url('images/promo2.avif');">
     <h3 class="text-lg font-medium">Holiday Deals</h3>
     <h2 class="text-5xl font-bold mt-2">Up to<br>30% off</h2>
     <p class="mt-4 text-sm">Selected Smartphone Brands</p>
-    <a href="smartphones.html" class="inline-block mt-6">
+    <a href="./index.php?product_id=23" class="inline-block mt-6">
       <div class="px-6 py-2 bg-white text-blue-400 rounded-full font-semibold hover:bg-gray-500 transition duration-200">
         Shop
       </div>
@@ -71,11 +70,11 @@
 
   <!-- Headphones Card -->
   <div class="bg-purple-700 text-white p-8  w-1/2 h-80 bg-cover bg-center"
-    style="background-image: url('/E-commerce/images/promo1.avif');">
+    style="background-image: url('images/promo1.avif');">
     <h3 class="text-lg font-medium">Just In</h3>
     <h2 class="text-5xl font-bold mt-2">Take Your<br>Sound Anywhere</h2>
     <p class="mt-4 text-sm">Top Headphone Brands</p>
-    <a href="headphones.html" class="inline-block mt-6">
+    <a href="./index.php?product_id=46" class="inline-block mt-6">
       <div class="px-6 py-2 bg-white text-blue-400 rounded-full font-semibold hover:bg-gray-500 transition duration-200">
         Shop
       </div>
@@ -157,7 +156,7 @@
     </div>
 
     <div class="text-center mt-6">
-      <a href="index.php?viewall=true">
+      <a href="index.php?category=all">
         <button class="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition">View All</button>
       </a>
     </div>
@@ -182,9 +181,11 @@
         </div>
         <p class="mt-4 text-md font-semibold">on professional camera drones</p>
         <p class="text-sm text-white mt-2">Limited quantities. <br> See product detail pages for availability.</p>
+        <a href="index.php?product_id=45">
         <button class="bg-purple-600 hover:bg-purple-700 text-white mt-6 px-6 py-2 rounded shadow-md">
           Shop
         </button>
+        </a>
       </div>
     </div>
   </section>
@@ -211,5 +212,33 @@
     <img src="images/help.png" alt="Laptop with headphones"
          class="w-full h-64 md:h-full object-cover" />
   </div>
+
+
+  
+  
 </section>
+
+
+<div class="relative z-10 w-full bg-black justify-center flex items-center h-full px-10">
+  <div class="p-3 m-4 rounded shadow-md text-center">
+    <h3 class="text-xl font-bold mb-4 text-white">Subscribe to our Sailing Newsletter</h3>
+    <form id="subscribeForm" method="POST">
+      <input 
+        type="email" 
+        name="email1" 
+        placeholder="Enter your email" 
+        required
+        class="px-4 py-2 rounded mr-2 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+      >
+      <button 
+        type="submit" 
+        id="subscribeBtn" 
+        name="send" 
+        class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+      >
+        Subscribe
+      </button>
+    </form>
+  </div>
+</div>
 </main>

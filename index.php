@@ -30,11 +30,14 @@ elseif(isset($_GET['cart'])){
 elseif(isset($_GET['product_id'])){
     include ('./client/product.php');
 }
-elseif(isset($_GET['viewall'])){
+elseif(isset($_GET['category'])){
     include ('./client/viewall.php');
 }
 elseif(isset($_GET['help'])){
-    include ('./client/from.php');
+    include ('./client/help.php');
+}
+elseif(isset($_GET['policy'])){
+    include ('./client/policy.php');
 }
 else{
     include ('./client/home.php'); 

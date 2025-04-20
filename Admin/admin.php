@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Add Product</title>
-    <link href="../src/output.css" rel="stylesheet">
+    <?php include("../partials/commonfiles.php"); ?>
 </head>
 
 <body class="bg-gray-100 ">
@@ -23,7 +23,7 @@
         </div>
     </nav>
 
-    <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-md pt-20 px-6">
+    <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-md pt-20 px-6 mt-40">
 
 
         <h2 class="text-2xl font-bold mb-6 text-center">Add New Product</h2>
@@ -110,7 +110,7 @@
                         <td class="py-2 px-4"><?= $row['product_info'] ?></td>
                         <td class="py-2 px-4">
                             <?php if ($row['product_image']) : ?>
-                                <img src="uploads/<?= htmlspecialchars($row['product_image']) ?>" class="h-16 w-16 object-cover rounded-md" alt="product image">
+                                <img src="productimge/<?= htmlspecialchars($row['product_image']) ?>" class="h-16 w-16 object-cover rounded-md" alt="product image">
                             <?php else : ?>
                                 <span class="text-gray-400">No image</span>
                             <?php endif; ?>

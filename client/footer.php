@@ -20,15 +20,14 @@
         <div>
             <h2 class="font-semibold text-lg">Shop</h2>
             <ul class="mt-2 space-y-2">
-                <li><a href="#" class="text-gray-400 hover:text-gray-200">Shop All</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-gray-200">Computers</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-gray-200">Tablets</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-gray-200">Drones & Cameras</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-gray-200">Audio</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-gray-200">Mobile</a></li>
-                <li><a href="#" class="text-purple-400 hover:text-purple-300 font-medium">T.V & Home Cinema</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-gray-200">Wearable Tech</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-gray-200">Sale</a></li>
+            <li><a href="index.php?category=all" class="hover:text-blue-900">Shop All</a></li>
+            <li><a href="index.php?category=computers" class="hover:text-blue-900">Computers</a></li>
+            <li><a href="index.php?category=Tablets" class="hover:text-blue-900">Tablets</a></li>
+            <li><a href="index.php?category=Drones and camera" class="hover:text-blue-900">Drones & Cameras</a></li>
+            <li><a href="index.php?category=Audio" class="hover:text-blue-900">Audio</a></li>
+            <li><a href="index.php?category=Mobile" class="hover:text-blue-900">Mobile</a></li>
+            <li><a href="index.php?category=Television" class="hover:text-blue-900">TV & Home Cinema</a></li>
+            <li><a href="index.php?category=Wearable Tech" class="hover:text-blue-900">Wearable Tech</a></li>
             </ul>
         </div>
 
@@ -37,7 +36,7 @@
             <h2 class="font-semibold text-lg">Customer Support</h2>
             <ul class="mt-2 space-y-2">
                 <li><a href="#" class="text-gray-400 hover:text-gray-200">Contact Us</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-gray-200">Help Center</a></li>
+                <li><a href="index.php?help=true" class="text-gray-400 hover:text-gray-200">Help Center</a></li>
                 <li><a href="#" class="text-gray-400 hover:text-gray-200">About Us</a></li>
                 <li><a href="Admin/admin.php" class="text-gray-400 hover:text-gray-200">Admin</a></li>
             </ul>
@@ -47,10 +46,10 @@
         <div>
             <h2 class="font-semibold text-lg">Policy</h2>
             <ul class="mt-2 space-y-2">
-                <li><a href="#" class="text-gray-400 hover:text-gray-200">Shipping & Returns</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-gray-200">Terms & Conditions</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-gray-200">Payment Methods</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-gray-200">FAQ</a></li>
+                <li><a href="index.php?policy=true" class="text-gray-400 hover:text-gray-200">Shipping & Returns</a></li>
+                <li><a href="index.php?policy=true" class="text-gray-400 hover:text-gray-200">Terms & Conditions</a></li>
+                <li><a href="index.php?policy=true" class="text-gray-400 hover:text-gray-200">Payment Methods</a></li>
+                <li><a href="index.php?policy=true" class="text-gray-400 hover:text-gray-200">FAQ</a></li>
             </ul>
         </div>
 
@@ -69,7 +68,7 @@
 
     <!-- Copyright -->
     <div class="text-center mt-5 text-gray-400">
-        © 2035 by TechShop. Powered and secured by <a href="www.linkedin.com/in/rohit-singh-3527aa270" class="text-blue-400 hover:underline">Rohit Singh</a>
+        © 2035 by TechShop. Powered and secured by <a href="#" class="text-blue-400 hover:underline"></a>
     </div>
 </footer>
 
