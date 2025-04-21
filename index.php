@@ -27,17 +27,29 @@ elseif(isset($_GET['wishlist'])){
 elseif(isset($_GET['cart'])){
     include ('./client/cart.php');
 }
+elseif(isset($_GET['orders'])){
+    include ('./client/orders.php');
+}
 elseif(isset($_GET['product_id'])){
     include ('./client/product.php');
 }
+elseif(isset($_GET['checkout'])){
+    include ('./client/checkout.php');
+}
 elseif(isset($_GET['category'])){
     include ('./client/viewall.php');
+}
+elseif(isset($_GET['aboutus'])){
+    include ('./client/aboutus.php');
 }
 elseif(isset($_GET['help'])){
     include ('./client/help.php');
 }
 elseif(isset($_GET['policy'])){
     include ('./client/policy.php');
+}
+elseif(isset($_GET['order_id'])){
+    include ('./client/orderdetails.php');
 }
 else{
     include ('./client/home.php'); 

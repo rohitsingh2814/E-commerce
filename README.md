@@ -3,7 +3,8 @@
 Welcome to **TechShop**, a modern and minimal e-commerce platform built for all your gadget needs! ⚙️  
 Built using **PHP**, **HTML**, **Tailwind CSS**, and **MySQL**, this platform allows users to shop seamlessly with a complete cart and wishlist experience.
 
-🔗 **Visit the Website:** [TechShop Live](http://techshop.infinityfreeapp.com/?i=1)
+🔗 **Visit the Website:**
+## http://techshop.infinityfreeapp.com/?i=1
 
 ---
 

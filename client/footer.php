@@ -37,8 +37,8 @@
             <ul class="mt-2 space-y-2">
                 <li><a href="#" class="text-gray-400 hover:text-gray-200">Contact Us</a></li>
                 <li><a href="index.php?help=true" class="text-gray-400 hover:text-gray-200">Help Center</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-gray-200">About Us</a></li>
-                <li><a href="Admin/admin.php" class="text-gray-400 hover:text-gray-200">Admin</a></li>
+                <li><a href="index.php?aboutus=true" class="text-gray-400 hover:text-gray-200">About Us</a></li>
+                <li><a href="Admin/admin.php" class="text-gray-400 hover:text-gray-200" target="_blank">Admin</a></li>
             </ul>
         </div>
 

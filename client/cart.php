@@ -140,7 +140,7 @@ if ($result->num_rows > 0) {
           </div>
 
           <button class="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-medium transition">
-            Proceed to Checkout
+            <a href="index.php?checkout=true>Proceed to Checkout"> proceed to checkout </a>
           </button>
 
           <div class="mt-4 flex justify-center">

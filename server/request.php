@@ -31,6 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
           alert("Invalid Crentails or You are not registred");
           window.location.href = "../index.php?login=true";
         </script>';
+        exit();
     }
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_to_cart'])) {
