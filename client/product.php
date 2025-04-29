@@ -3,7 +3,6 @@ if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
 include 'partials/database.php';
-// Fetch product from database using GET id
 $product_id = $_GET['product_id'] ?? 0;
 $query = "SELECT * FROM product WHERE product_id = ?";
 $stmt = mysqli_prepare($conn, $query);
@@ -12,7 +11,7 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 $product = mysqli_fetch_assoc($result);
 
-// Fallback if product not found
+
 if (!$product) {
     echo "<p class='text-center text-red-500'>Product not found.</p>";
     return;

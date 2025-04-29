@@ -382,37 +382,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['place_order'])) {
     }
   </script>
   <script>
-// document.addEventListener("DOMContentLoaded", function() {
-//     // Toggle address form
-//     const editAddressBtn = document.getElementById('edit-address-btn');
-//     if (editAddressBtn) {
-//         editAddressBtn.addEventListener('click', function() {
-//             document.getElementById('address-form').classList.toggle('hidden');
-//         });
-//     }
-    
-//     // Show error messages as toast
-//     <?php if (isset($error_message)): ?>
-//         showToast('<?= addslashes($error_message) ?>', 'error');
-//     <?php endif; ?>
-    
-//     <?php if (isset($success_message)): ?>
-//         showToast('<?= addslashes($success_message) ?>', 'success');
-//     <?php endif; ?>
-// });
-
-function showToast(message, type = 'success') {
-    const toast = document.createElement('div');
-    toast.className = `fixed top-4 right-4 px-6 py-3 rounded-md shadow-md text-white font-medium animate__animated animate__fadeInRight ${
-        type === 'success' ? 'bg-green-500' : 'bg-red-500'
-    }`;
-    toast.textContent = message;
-    document.body.appendChild(toast);
-    
-    
-}
-</script>
-<script>
 document.addEventListener("DOMContentLoaded", function() {
     // Toggle address form
     const editAddressBtn = document.getElementById('edit-address-btn');
@@ -423,13 +392,46 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
     // Show error messages as toast
-    <!-- <?php if (isset($error_message)): ?>
+    <?php if (isset($error_message)): ?>
         showToast('<?= addslashes($error_message) ?>', 'error');
     <?php endif; ?>
     
     <?php if (isset($success_message)): ?>
         showToast('<?= addslashes($success_message) ?>', 'success');
-    <?php endif; ?> -->
+    <?php endif; ?>
+});
+
+function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = `fixed top-4 right-4 px-6 py-3 rounded-md shadow-md text-white font-medium animate__animated animate__fadeInRight ${
+        type === 'success' ? 'bg-green-500' : 'bg-red-500'
+    }`;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.classList.add('animate__fadeOutRight');
+        setTimeout(() => toast.remove(), 500);
+    }, 3000);
+}
+</script><script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Toggle address form
+    const editAddressBtn = document.getElementById('edit-address-btn');
+    if (editAddressBtn) {
+        editAddressBtn.addEventListener('click', function() {
+            document.getElementById('address-form').classList.toggle('hidden');
+        });
+    }
+    
+    // Show error messages as toast
+    <?php if (isset($error_message)): ?>
+        showToast('<?= addslashes($error_message) ?>', 'error');
+    <?php endif; ?>
+    
+    <?php if (isset($success_message)): ?>
+        showToast('<?= addslashes($success_message) ?>', 'success');
+    <?php endif; ?>
 });
 
 function showToast(message, type = 'success') {
